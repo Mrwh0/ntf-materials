@@ -38,9 +38,9 @@ class _NoostFeedScreenState extends State<NoostFeedScreen> {
 
     _relay.sub([
       Filter(
-        kinds: [1],
+        kinds: [30018],
         limit: 100,
-        t: ["nostr"],
+        //t: ["nostr"],
       )
     ]);
 
@@ -48,7 +48,7 @@ class _NoostFeedScreenState extends State<NoostFeedScreen> {
       if (message.type == 'EVENT') {
         Event event = message.message;
 
-        if (event.kind == 1) {
+        if (event.kind == 30018) {
           _events.add(event);
           _relay.sub([
             Filter(kinds: [0], authors: [event.pubkey])
